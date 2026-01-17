@@ -25,16 +25,29 @@ export const SetupWizard: React.FC<SetupWizardProps> = ({ background, setBackgro
       render: (
         <div className="w-full flex flex-col items-center">
            <input 
-             type="number" min="20" max="45" 
-             value={background.age}
+             type="number" min="21" max="45" 
+             value={background.age || ''}
              onChange={(e) => {
+               if (e.target.value === '') {
+                 setBackground({...background, age: 0});
+                 return;
+               }
                const val = parseInt(e.target.value);
                if (!isNaN(val)) {
-                 setBackground({...background, age: val});
+                 if (val > 45) {
+                   setBackground({...background, age: 45});
+                 } else {
+                   setBackground({...background, age: val});
+                 }
+               }
+             }}
+             onBlur={() => {
+               if (background.age < 21) {
+                 setBackground({...background, age: 21});
                }
              }}
              className="w-full max-w-sm p-3 bg-white/50 backdrop-blur-sm border border-slate-200 rounded-lg text-lg text-center font-mono focus:outline-none focus:ring-2 focus:ring-black/10"
-             placeholder="请输入年龄 (20-45)"
+             placeholder="请输入年龄 (21-45)"
            />
         </div>
       )
