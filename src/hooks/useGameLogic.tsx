@@ -62,7 +62,7 @@ export const useGameLogic = () => {
   const [feedback, setFeedback] = useState<string | null>(null); 
   const [feedbackChanges, setFeedbackChanges] = useState<any>(null); 
   
-  const [background, setBackground] = useState<Background>({ age: 28, city: 'tier2', partner: 'supportive', workIntensity: 2 });
+  const [background, setBackground] = useState<Background>({ age: 28, city: 'tier2', partner: 'rational', workIntensity: 2 });
 
   const currentAgeYear = background.age + Math.floor(totalMonths / 12);
   const currentStage = STAGES[stageIndex];
