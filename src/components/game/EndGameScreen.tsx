@@ -30,7 +30,7 @@ const StatCard = ({ icon: Icon, value, label, color, barColor }: { icon: any, va
   <div className="bg-white rounded-3xl p-4 flex flex-col items-center justify-between shadow-sm border border-slate-100 h-full">
     <div className="flex flex-col items-center gap-2">
       <div className={`p-2 rounded-full ${color} bg-opacity-20`}>
-        <Icon className={`w-5 h-5 ${color.replace('bg-', 'text-')}`} />
+        <Icon className={`w-5 h-5`} />
       </div>
       <span className="text-2xl font-black text-slate-800">{value}</span>
       <span className="text-xs font-bold text-slate-400">{label}</span>
